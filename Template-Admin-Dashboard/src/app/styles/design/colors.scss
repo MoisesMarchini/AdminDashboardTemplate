@@ -1,0 +1,64 @@
+
+$primary:              #3C50E0;
+$secondary:            #80CAEE;
+$secondary-light:      #e2e2e2;
+$success:              #10B981;
+$info:                 #0dcaf0;
+$warning:              #F0950C;
+$danger:               #FB5454;
+$light:                #f8f9fa;
+$dark:                 #1C2434;
+
+$blue:                 #3C50E0;
+$indigo:               #6610f2;
+$purple:               #6f42c1;
+$pink:                 #d63384;
+$red:                  #FB5454;
+$yellow:               #F0950C;
+$green:                #10B981;
+$cyan:                 #0dcaf0;
+$gray:                 #EFF4FB;
+$white:                #ffffff;
+$black:                #000000;
+
+$body-bg:              #F1F5F9;
+
+$body-color:           #64748B;
+$header-color:         #212B36;
+$header-color-alt:     #8A99AF;
+
+$border-color:         #E2E8F0;
+
+$theme-colors: (
+  "primary":                $primary,
+  "secondary":              $secondary,
+  'secondary-light':        $secondary-light,
+  "success":                $success,
+  "info":                   $info,
+  "warning":                $warning,
+  "danger":                 $danger,
+  "light":                  $light,
+  "dark":                   $dark,
+
+  "blue":                    $blue,
+  "indigo":                  $indigo,
+  "purple":                  $purple,
+  "pink":                    $pink,
+  "red":                     $red,
+  "yellow":                  $yellow,
+  "green":                   $green,
+  "cyan":                    $cyan,
+  "gray":                    $gray,
+  "white":                   $white,
+  "black":                   $black,
+
+  "body-bg":                 $body-bg,
+  "body-color":              $body-color,
+  "header-color":            $header-color,
+  "header-color-alt":        $header-color-alt,
+
+  "border-color":            $border-color,
+);
+
+/* Importing Bootstrap SCSS file. */
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
