@@ -1,3 +1,13 @@
+:host{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: auto;
+  overflow: overlay;
+  flex-shrink: 0;
+}
+
 ul li.nav-item{
   margin: 4px 25px;
   display: flex;
@@ -55,4 +65,12 @@ ul li.nav-item{
 .nav-link:not(.active):not(.disabled):hover::before{
   height: 2px;
   opacity: .75;
+}
+
+@media (max-width: 768px) {
+  :host{
+    position: fixed;
+    display: none !important;
+    z-index: 1000;
+  }
 }

@@ -1,0 +1,18 @@
+th, td{
+  padding: 15px 26px;
+}
+
+.row-first{
+  --progress-width: 0;
+  width: 70%;
+}
+
+.row-first::before{
+  content: '';
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: var(--progress-width);
+  background-color: var(--bs-gray);
+  border-radius: 4px;
+}

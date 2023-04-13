@@ -1,0 +1,10 @@
+input.form-control{
+  padding: 8px 20px;
+  border-radius: 4px;
+  height: 50px;
+  border-color: var(--bs-border-color);
+  border-width: var(--bs-border-width);
+}
+input.form-control:focus{
+  border-color: var(--bs-primary);
+}

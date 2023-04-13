@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Card } from '../card';
 
 @Component({
   selector: 'app-card-with-header',
@@ -7,8 +8,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardWithHeaderComponent {
-  @Input() title: string = '';
-  @Input() description: string = '';
-  @Input() feedback: string = '';
+  @Input() card?: Card;
 
 }

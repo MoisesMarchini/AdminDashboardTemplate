@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Card, CardMiniInfo } from '../card';
 
 @Component({
   selector: 'app-card-mini-info',
@@ -7,8 +8,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardMiniInfoComponent {
-  @Input() title: string = '';
-  @Input() description: string = '';
-  @Input() feedback: string = '';
-
+  @Input() cards?: {card: Card, info: CardMiniInfo}[];
 }

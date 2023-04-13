@@ -1,0 +1,49 @@
+<ng-container *ngIf="card && table">
+  <div class="card rounded-0 border shadow-sm">
+    <h6
+    style="padding: 15px 26px;"
+    class="card-header mt-2 border-0 bg-transparent">
+    {{card.title}}
+    </h6>
+    <div
+    class="table-responsive">
+      <table
+      class="table m-0 mb-4 border-white">
+        <thead>
+          <tr>
+            <ng-container *ngFor="let header of table.titles; let i = index">
+              <th
+              [class.text-end]="i > 0"
+              scope="col"
+              class="fs-16-medium">{{header}}</th>
+            </ng-container>
+          </tr>
+        </thead>
+        <tbody>
+
+          <ng-container *ngFor="let item of table.objects; let i = index">
+            <tr
+            [class.border-white]="i === table.objects.length -1"
+            class="text-header-color">
+              <ng-container *ngFor="let header of table.titles; let i = index">
+                <td
+                class="position-relative"
+                [style]="'--progress-width: '+item['progress']+'% !important'"
+                [class.row-first]="i === 0"
+                [class.text-end]="i > 0"
+                scope="row">
+                  <div
+                  [style]="'padding-left: '+(item['progress'] != 0? 'inherit' : '0')"
+                  class="content position-relative w-100 h-100">
+                    {{item[header.toLowerCase()]}}
+                  </div>
+                </td>
+              </ng-container>
+            </tr>
+          </ng-container>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>

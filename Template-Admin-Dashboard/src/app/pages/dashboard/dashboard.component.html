@@ -1,11 +1,28 @@
 <div
-class="container px-lg-4 page-container mt-2 pt-1 pt-lg-0 mt-lg-4 d-flex flex-column gap-3"
+class="container page-container"
 >
-  <app-card-with-header></app-card-with-header>
-  <div class="border row p-0 m-0 shadow-sm">
-    <app-card-mini-info class="col p-0" [title]="'18.6K'" [feedback]="'16%'" [description]="'Visitors'"></app-card-mini-info>
-    <app-card-mini-info class="col p-0" [title]="'32.9K'" [feedback]="'76%'" [description]="'Total Pageviews'"></app-card-mini-info>
-    <app-card-mini-info class="col p-0" [title]="'54%'" [feedback]="'6%'" [description]="'Bounce Rate'"></app-card-mini-info>
-    <app-card-mini-info class="col p-0" [title]="'2m 56s'" [feedback]="'12%'" [description]="'Visit Duration'"></app-card-mini-info>
+<h3 class="page-header">Dashboard</h3>
+
+  <div class="row m-0 p-0 gap-3 w-100">
+    <div class="col-12 col-lg m-0 p-0">
+      <app-card-form></app-card-form>
+    </div>
+    <div class="col-12 col-md m-0 p-0 d-flex flex-column gap-3">
+      <app-card-form></app-card-form>
+    </div>
   </div>
+
+  <app-card-mini-info [cards]="cardMiniInfo"></app-card-mini-info>
+
+  <div class="row m-0 p-0 gap-3 w-100">
+    <div class="col-12 col-lg m-0 p-0">
+      <app-card-with-header class="h-100 d-grid" [card]="cardWithHeader"></app-card-with-header>
+    </div>
+    <div class="col-12 col-md m-0 p-0 d-flex flex-column gap-3">
+      <app-card-table [card]="cardTableContent.card" [table]="cardTableContent.table"></app-card-table>
+      <app-card-table-stripped [card]="cardTableChannels.card" [table]="cardTableChannels.table"></app-card-table-stripped>
+    </div>
+  </div>
+
+
 </div>

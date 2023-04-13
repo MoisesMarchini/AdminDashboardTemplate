@@ -1,22 +1,37 @@
-<div class="card rounded-0 border-0 position-relative">
-  <div class="card-border rounded-0 border-0 my-4 border-end">
-    <div class="card-content position-relative">
-      <div class="content-header d-flex align-items-center">
-        <h4
-        style="padding: 0px 13px;"
-        class="card-header border-0 bg-transparent">
-          {{title}}
-        </h4>
-        <div class="card-feedback text-green text-end">
-          <i class="fa-solid fa-arrow-up me-1"></i>
-          {{feedback}}
+<ng-container *ngIf="cards">
+  <div class="row bg-white w-100 rounded-0 shadow-sm border p-0 m-0">
+    <ng-container *ngFor="let item of cards; let i = index">
+      <div class="card bg-transparent position-relative col-6 col-md-6 col-xl-3 p-0 rounded-0 border-0">
+        <div
+        style="bottom: -1px; left: 50%; transform: translateX(-50%); width: 75%;"
+        class="border-bottom position-absolute"></div>
+        <div
+        style="margin-right: -1px;"
+        class="card-border rounded-0 border-0 my-4 border-end">
+          <div class="card-content position-relative">
+            <div class="content-header d-flex align-items-center">
+              <h4
+              style="padding: 0px 13px;"
+              class="card-header border-0 bg-transparent">
+                {{item.card.title}}
+              </h4>
+              <div
+              [ngClass]="'text-'+item.info.color"
+              class="card-feedback text-end">
+                <i
+                [ngClass]="'fa-arrow-'+item.info.icon"
+                class="fa-solid me-1"></i>
+                {{item.info.value}}
+              </div>
+            </div>
+            <div
+            style="padding: 0px 13px;"
+            class="card-body fs-14-medium">
+              {{item.card.body}}
+            </div>
+          </div>
         </div>
       </div>
-      <div
-      style="padding: 0px 13px;"
-      class="card-body default-text">
-        {{description}}
-      </div>
-    </div>
+    </ng-container>
   </div>
-</div>
+</ng-container>

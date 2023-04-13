@@ -1,6 +1,6 @@
 <div
-style="width: min(280px, 100vw); height: 100vh;"
-class="sidebar-container text-bg-dark d-none d-lg-flex flex-column">
+style="width: min(280px, 100vw); min-height: 100%; padding-bottom: 25px;"
+class="sidebar-container text-bg-dark d-flex flex-column">
   <div
   style="height: 80px; place-items: center;"
   class="logo d-grid">
@@ -14,13 +14,25 @@ class="sidebar-container text-bg-dark d-none d-lg-flex flex-column">
       </span>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="#" aria-current="page">
+        <a
+          class="nav-link"
+          routerLink="/dashboard"
+          routerLinkActive="active">
           <i class="fa-solid fa-border-all"></i>
           Dashboard
+          <i
+          (click)="collapseToggle.checked = !collapseToggle.checked"
+          style="left: auto; padding: 0 var(--bs-nav-link-padding-x); transition: all .3s ease-in-out;"
+          [class.expanded]="collapseToggle.checked"
+          class="fa-solid fa-chevron-down fs-14-medium end-0 fw-bolder btn-icon-toggle"></i>
         </a>
-        <ul class="nav flex-column">
+        <ul #dashboardCollapse="bs-collapse"
+        [collapse]='!collapseToggle.checked'
+        [isAnimated]="true"
+        class="nav flex-column">
+        <input type="checkbox" #collapseToggle class="d-none">
           <li class="nav-item">
-            <a href="" class="nav-link disabled">
+            <a href="" class="nav-link disabled pro-feature">
               Ecommerce
             </a>
           </li>
@@ -37,13 +49,19 @@ class="sidebar-container text-bg-dark d-none d-lg-flex flex-column">
         </ul>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a
+        class="nav-link"
+        routerLink="/calendar"
+        routerLinkActive="active">
           <i class="fa-regular fa-calendar-days"></i>
           Calendar
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a
+        class="nav-link"
+        routerLink="/profile"
+        routerLinkActive="active">
           <i class="fa-regular fa-user"></i>
           Profile
         </a>

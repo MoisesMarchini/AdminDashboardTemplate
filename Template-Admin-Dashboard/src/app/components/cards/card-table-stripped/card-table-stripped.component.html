@@ -1,0 +1,55 @@
+<ng-container *ngIf="card && table">
+  <div class="card rounded-0 border shadow-sm">
+    <h6
+    style="padding: 15px 26px;"
+    class="card-header mt-2 border-0 bg-transparent">
+    {{card.title}}
+    </h6>
+    <div
+    style="padding: 0 26px;"
+    class="table-responsive">
+      <table
+      class="table m-0 mb-2 border-white">
+        <thead
+        style="background-color: #F7F9FC;">
+          <tr>
+            <ng-container *ngFor="let header of table.titles; let i = index">
+              <th
+              [class.text-center]="i > 0"
+              scope="col"
+              class="fs-16-medium">{{header}}</th>
+            </ng-container>
+          </tr>
+        </thead>
+        <tbody>
+
+          <ng-container *ngFor="let item of table.objects; let i = index">
+            <tr
+            [class.border-white]="i === table.objects.length -1"
+            class="text-header-color border-bottom">
+              <ng-container *ngFor="let header of table.titles; let j = index">
+                <td
+                [class.text-center]="j > 0"
+                [class.row-first]="j === 0"
+                style="vertical-align: middle;"
+                scope="row">
+                  <div
+                  [class.justify-content-center]="j > 0"
+                  class="content position-relative align-items-center w-100 d-flex gap-3">
+                    <ng-container *ngIf="item.icon && item.icon[j]">
+                      <i
+                      [class]="item.icon[j].class+' fs-4 row-icon rounded-pill text-'+ item.icon[j].textColor +' bg-'+ item.icon[j].bgColor"></i>
+                    </ng-container>
+
+                    {{item[header.toLowerCase()]}}
+                  </div>
+                </td>
+              </ng-container>
+            </tr>
+          </ng-container>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>

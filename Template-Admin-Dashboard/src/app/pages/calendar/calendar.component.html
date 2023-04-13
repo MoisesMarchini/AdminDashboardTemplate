@@ -1,0 +1,37 @@
+<div class="container page-container">
+  <h3 class="page-header">Calendar</h3>
+  <div class="table-responsive">
+    <table
+    style="table-layout: fixed ; width: 100%;"
+    class="table text-bg-white table-bordered ">
+      <thead
+      style="border-width: 1px; border-color: var(--bs-primary);"
+      class="border-bottom-0">
+        <tr
+        style="vertical-align: middle; height: 60px;"
+        class="text-center text-bg-primary">
+          <th scope="col" class="border-0">Domingo</th>
+          <th scope="col" class="border-0">Segunda</th>
+          <th scope="col" class="border-0">Terça</th>
+          <th scope="col" class="border-0">Quarta</th>
+          <th scope="col" class="border-0">Quinta</th>
+          <th scope="col" class="border-0">Sexta</th>
+          <th scope="col" class="border-0">Sábado</th>
+        </tr>
+      </thead>
+      <tbody class="border border-1">
+        <ng-container *ngFor="let week of calendarWeeks; let weekIndex = index">
+          <tr style="height: 120px;">
+            <ng-container *ngFor="let day of getWeek(weekIndex); let dayIndex = index">
+              <td scope="row"
+              [class.opacity-50]="isAnotherMonth(day)"
+              [class.bg-gray]="isAnotherMonth(day)"
+              class="ps-3 pt-3 cursor-pointer hover-shadow">{{day.date()}}</td>
+            </ng-container>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+</div>

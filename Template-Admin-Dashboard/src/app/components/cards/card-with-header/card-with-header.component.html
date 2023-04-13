@@ -1,13 +1,15 @@
 
-<div class="card rounded-0 border shadow-sm">
-  <h6
-  style="padding: 15px 26px;"
-  class="card-header border-bottom bg-transparent">
-    Título
-  </h6>
-  <div
-  style="padding: 15px 26px;"
-  class="card-body default-text">
-    Corpo
+<ng-container *ngIf="card">
+  <div class="card rounded-0 border shadow-sm">
+    <h6
+    style="padding: 15px 26px;"
+    class="card-header mt-2 border-0 bg-transparent">
+    {{card.title}}
+    </h6>
+    <div
+    style="padding: 15px 26px;"
+    class="card-body fs-14-medium">
+    {{card.body}}
+    </div>
   </div>
-</div>
+</ng-container>
