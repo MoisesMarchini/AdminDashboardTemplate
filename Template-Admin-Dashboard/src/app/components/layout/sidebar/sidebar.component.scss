@@ -6,6 +6,21 @@
   overflow: auto;
   overflow: overlay;
   flex-shrink: 0;
+  z-index: 1000;
+}
+
+*{
+  transition: all .3s ease-in-out;
+}
+
+.sidebar{
+  &.show .sidebar-container{
+    display: flex !important;
+  }
+  &.collapses:not(.show) .sidebar-container,
+  &.collapsed .sidebar-container{
+    width: 0;
+  }
 }
 
 ul li.nav-item{
@@ -68,9 +83,11 @@ ul li.nav-item{
 }
 
 @media (max-width: 768px) {
-  :host{
+  .sidebar{
     position: fixed;
-    display: none !important;
-    z-index: 1000;
+    width: 0;
+    &.show{
+      width: 100%;
+    }
   }
 }

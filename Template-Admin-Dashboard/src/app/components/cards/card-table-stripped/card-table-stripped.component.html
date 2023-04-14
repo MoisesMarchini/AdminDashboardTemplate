@@ -17,7 +17,7 @@
               <th
               [class.text-center]="i > 0"
               scope="col"
-              class="fs-16-medium">{{header}}</th>
+              class="p-3 fs-16-medium">{{header}}</th>
             </ng-container>
           </tr>
         </thead>
@@ -32,7 +32,8 @@
                 [class.text-center]="j > 0"
                 [class.row-first]="j === 0"
                 style="vertical-align: middle;"
-                scope="row">
+                scope="row"
+                class="p-3 px-0">
                   <div
                   [class.justify-content-center]="j > 0"
                   class="content position-relative align-items-center w-100 d-flex gap-3">

@@ -16,7 +16,6 @@ export class CalendarComponent implements OnInit {
   }
 
   isAnotherMonth(date: Moment) {
-    console.log(date.month() === moment().month())
     return date.month() !== moment().month();
   }
 

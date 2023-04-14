@@ -1,70 +1,80 @@
 <div
-style="width: min(280px, 100vw); min-height: 100%; padding-bottom: 25px;"
-class="sidebar-container text-bg-dark d-flex flex-column">
+#sidebar
+[class.d-flex]="!isCollapsed"
+[class.d-none]="isCollapsed"
+class="sidebar d-md-flex h-100 w-100">
+
   <div
-  style="height: 80px; place-items: center;"
-  class="logo d-grid">
-    <h3 class="m-0 text-white">Marca</h3>
+  style="width: min(280px, 100vw); min-height: 100%; display: flex;padding-bottom: 25px; z-index: inherit;"
+  class="sidebar-container text-bg-dark d-md-flex flex-shrink-0 flex-column">
+    <div
+    style="height: 80px; place-items: center;"
+    class="logo d-grid">
+      <h3 class="m-0 text-white">Marca</h3>
+    </div>
+
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <span class="nav-header">
+          MENU
+        </span>
+      </li>
+      <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/dashboard"
+            routerLinkActive="active">
+            <i class="fa-solid fa-border-all"></i>
+            Dashboard
+            <i
+            (click)="dashboardCollapseToggle.checked = !dashboardCollapseToggle.checked"
+            style="left: auto; padding: 0 var(--bs-nav-link-padding-x); transition: all .3s ease-in-out;"
+            [class.expanded]="dashboardCollapseToggle.checked"
+            class="fa-solid fa-chevron-down fs-14-medium end-0 fw-bolder pointer-event btn-icon-toggle"></i>
+          </a>
+          <ul #dashboardCollapse="bs-collapse"
+          [collapse]='!dashboardCollapseToggle.checked'
+          [isAnimated]="true"
+          class="nav flex-column">
+          <input type="checkbox" #dashboardCollapseToggle class="d-none">
+            <li class="nav-item">
+              <a href="" class="nav-link disabled pro-feature">
+                Ecommerce
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                Analytics
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                Marketing
+              </a>
+            </li>
+          </ul>
+      </li>
+      <li class="nav-item">
+          <a
+          class="nav-link"
+          routerLink="/calendar"
+          routerLinkActive="active">
+            <i class="fa-regular fa-calendar-days"></i>
+            Calendar
+          </a>
+      </li>
+      <li class="nav-item">
+          <a
+          class="nav-link"
+          routerLink="/profile"
+          routerLinkActive="active">
+            <i class="fa-regular fa-user"></i>
+            Profile
+          </a>
+      </li>
+    </ul>
   </div>
 
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <span class="nav-header">
-        MENU
-      </span>
-    </li>
-    <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="/dashboard"
-          routerLinkActive="active">
-          <i class="fa-solid fa-border-all"></i>
-          Dashboard
-          <i
-          (click)="collapseToggle.checked = !collapseToggle.checked"
-          style="left: auto; padding: 0 var(--bs-nav-link-padding-x); transition: all .3s ease-in-out;"
-          [class.expanded]="collapseToggle.checked"
-          class="fa-solid fa-chevron-down fs-14-medium end-0 fw-bolder btn-icon-toggle"></i>
-        </a>
-        <ul #dashboardCollapse="bs-collapse"
-        [collapse]='!collapseToggle.checked'
-        [isAnimated]="true"
-        class="nav flex-column">
-        <input type="checkbox" #collapseToggle class="d-none">
-          <li class="nav-item">
-            <a href="" class="nav-link disabled pro-feature">
-              Ecommerce
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              Analytics
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              Marketing
-            </a>
-          </li>
-        </ul>
-    </li>
-    <li class="nav-item">
-        <a
-        class="nav-link"
-        routerLink="/calendar"
-        routerLinkActive="active">
-          <i class="fa-regular fa-calendar-days"></i>
-          Calendar
-        </a>
-    </li>
-    <li class="nav-item">
-        <a
-        class="nav-link"
-        routerLink="/profile"
-        routerLinkActive="active">
-          <i class="fa-regular fa-user"></i>
-          Profile
-        </a>
-    </li>
-  </ul>
+  <div class="sidebar-background bg-black flex-grow-1 opacity-50" (click)="closeSidebar()"></div>
+
 </div>
